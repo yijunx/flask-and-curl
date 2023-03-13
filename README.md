@@ -1,3 +1,7 @@
-# flask_and_curl
+# flask-and-curl
 
-This repo checks the curl and requests and how flask 2.2.2 receive them
+This repo studies flask with curl and requests library on:
+
+- get with args
+- post with json
+- post with data and file

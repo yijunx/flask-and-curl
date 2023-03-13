@@ -23,6 +23,7 @@ curl --location --request POST 'http://localhost:5000/endpoint_to_post_data_and_
 --form 'x="1"' \
 --form 'y="2"' \
 --form 'file1=@"/Users/yijun/Downloads/ship1.jpg"'
+# change the absolute path to your own path
 
 
 # {
