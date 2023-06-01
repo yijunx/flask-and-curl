@@ -4,9 +4,14 @@ from werkzeug.datastructures import FileStorage
 import os
 import tempfile
 import time
+from flask_pydantic import validate
+from pydantic import BaseModel
 
 
 app = Flask(__name__)
+
+
+
 
 
 def save_files(files_dict: dict[str, FileStorage], folder_path: str) -> dict:
@@ -19,9 +24,18 @@ def save_files(files_dict: dict[str, FileStorage], folder_path: str) -> dict:
     return filepath_dict
 
 
+class GetQuery(BaseModel):
+    name: str
+    age: int
+
+
 @app.route('/endpoint_to_get', methods=['GET'])
-def get_endpoint():
-    print(request.args)  # ImmutableMultiDict
+@validate()
+def get_endpoint(query: GetQuery):
+    # if there are 2 name in the path
+    print(request.args)  # ImmutableMultiDict has 2 names
+    print(request.args.get("name"))  # only gets first name!!!
+    print(query)  # also only gets first name
     return {"the-args": request.args}
 
 

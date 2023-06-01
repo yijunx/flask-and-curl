@@ -4,7 +4,7 @@ import requests
 def send_requests():
     # send requests
     print("##### HERE WE SEND A GET REQUEST #####")
-    r = requests.get("http://localhost:5000/endpoint_to_get?name=John&age=20")
+    r = requests.get("http://localhost:5000/endpoint_to_get?name=John&name=Mary&age=20")
     print(r.json())
 
     print("##### HERE WE SEND A POST REQUEST WITH JSON #####")
